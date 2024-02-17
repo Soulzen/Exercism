@@ -4,76 +4,6 @@ export class Bowling {
   points = 0
   frame = 1
 
-  public isSpare(frame: number): boolean {
-    return this.game[frame][0] + this.game[frame][1] === 10
-  }
-
-  public isStrike(frame: number): boolean {
-    return this.game[frame][0] === 10
-  }
-
-  public allBallsThrown(): boolean {
-    if (
-      !this.isSpare(10) &&
-      !this.isStrike(10) &&
-      this.frame === 11 &&
-      this.ball === "first"
-    ) {
-      return true
-    }
-
-    if (
-      this.isSpare(10) &&
-      !this.isStrike(10) &&
-      !this.isStrike(11) &&
-      this.frame === 11 &&
-      this.ball === "second"
-    ) {
-      return true
-    }
-
-    if (
-      this.isSpare(10) &&
-      !this.isStrike(10) &&
-      this.isStrike(11) &&
-      this.frame === 12 &&
-      this.ball === "first"
-    ) {
-      return true
-    }
-
-    if (
-      this.isStrike(10) &&
-      !this.isStrike(11) &&
-      this.frame === 12 &&
-      this.ball === "first"
-    ) {
-      return true
-    }
-
-    if (
-      this.isStrike(10) &&
-      this.isStrike(11) &&
-      !this.isStrike(12) &&
-      this.frame === 12 &&
-      this.ball === "second"
-    ) {
-      return true
-    }
-
-    if (
-      this.isStrike(10) &&
-      this.isStrike(11) &&
-      this.isStrike(12) &&
-      this.frame === 13 &&
-      this.ball === "first"
-    ) {
-      return true
-    }
-
-    return false
-  }
-
   public roll(pins: number): void {
     if (pins < 0) {
       throw new Error("Negative roll is invalid")
@@ -146,5 +76,75 @@ export class Bowling {
       }
     }
     return this.points
+  }
+
+  public isSpare(frame: number): boolean {
+    return this.game[frame][0] + this.game[frame][1] === 10
+  }
+
+  public isStrike(frame: number): boolean {
+    return this.game[frame][0] === 10
+  }
+
+  public allBallsThrown(): boolean {
+    if (
+      !this.isSpare(10) &&
+      !this.isStrike(10) &&
+      this.frame === 11 &&
+      this.ball === "first"
+    ) {
+      return true
+    }
+
+    if (
+      this.isSpare(10) &&
+      !this.isStrike(10) &&
+      !this.isStrike(11) &&
+      this.frame === 11 &&
+      this.ball === "second"
+    ) {
+      return true
+    }
+
+    if (
+      this.isSpare(10) &&
+      !this.isStrike(10) &&
+      this.isStrike(11) &&
+      this.frame === 12 &&
+      this.ball === "first"
+    ) {
+      return true
+    }
+
+    if (
+      this.isStrike(10) &&
+      !this.isStrike(11) &&
+      this.frame === 12 &&
+      this.ball === "first"
+    ) {
+      return true
+    }
+
+    if (
+      this.isStrike(10) &&
+      this.isStrike(11) &&
+      !this.isStrike(12) &&
+      this.frame === 12 &&
+      this.ball === "second"
+    ) {
+      return true
+    }
+
+    if (
+      this.isStrike(10) &&
+      this.isStrike(11) &&
+      this.isStrike(12) &&
+      this.frame === 13 &&
+      this.ball === "first"
+    ) {
+      return true
+    }
+
+    return false
   }
 }
